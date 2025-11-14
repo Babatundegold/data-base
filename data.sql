@@ -7,9 +7,8 @@
 SELECT SKU, SKU_Description
 FROM Products;
 
- 
- -- 2.19
- SELECT SKU_Description, SKU
+-- 2.19
+SELECT SKU_Description, SKU
 FROM Products;
 
 -- 2.20 
@@ -22,47 +21,62 @@ FROM Products;
 
 -- 2.22 
 SELECT SKU, SKU_Description, WarehouseID,
-       QuantityOnHand, QuantityOnOrder, Price
+QuantityOnHand, QuantityOnOrder, Price
 FROM Products;
 
 -- 2.23 
 SELECT *
 FROM Products;
 
-
+-- 2.24 
 SELECT *
 FROM Products
 WHERE QuantityOnHand > 0;
 
+-- 2.25 
 SELECT SKU, SKU_Description, WarehouseID
 FROM Products
 WHERE QuantityOnHand = 0
 ORDER BY WarehouseID ASC;
 
-
+-- 2.26 
 SELECT SKU, SKU_Description, WarehouseID
 FROM Products
 WHERE QuantityOnHand = 0
-  AND QuantityOnOrder > 0
-ORDER BY WarehouseID DESC, SKU ASC;
+ORDER BY WarehouseID;
 
 
+-- 2.27
 SELECT SKU, SKU_Description, WarehouseID
 FROM Products
-WHERE QuantityOnHand = 0
-   OR QuantityOnOrder = 0
-ORDER BY WarehouseID DESC, SKU ASC;
+WHERE QuantityOnHand > 0
+ORDER BY WarehouseID, SKU;
 
 
 
+-- 2.28 
+SELECT SKU, SKU_Description, WarehouseID
+FROM Products
+WHERE QuantityOnHand = 0 
+AND QuantityOnOrder > 0
+ORDER BY WarehouseID, SKU;
+
+  
+ --  2.29
+SELECT SKU, SKU_Description, WarehouseID
+FROM Products
+WHERE QuantityOnHand = 0 
+OR QuantityOnOrder = 0
+ORDER BY WarehouseID, SKU;
+
+-- 2.30
 SELECT SKU, SKU_Description, WarehouseID, QuantityOnHand
 FROM Products
-WHERE QuantityOnHand > 1
-  AND QuantityOnHand < 10;
-  
-  
-  
-  SELECT SKU, SKU_Description, WarehouseID, QuantityOnHand
+WHERE QuantityOnHand > 1 
+AND QuantityOnHand < 10;
+
+-- 2.31
+SELECT SKU, SKU_Description, WarehouseID, QuantityOnHand
 FROM Products
 WHERE QuantityOnHand BETWEEN 1 AND 10;
 
